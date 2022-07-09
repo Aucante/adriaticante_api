@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<div class="container">
+        <div class="row">
+        {% for data in datas %}
+                <div class="col-4 border">
+                        <p>{{ data.name }}</p>
+                        <p>{{ data.price }}</p>
+                </div>
+        {% endfor %}
+        </div>
+</div>
+{% endblock %}
