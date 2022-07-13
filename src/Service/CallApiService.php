@@ -22,6 +22,16 @@ class CallApiService
 
         return $response->toArray();
     }
+
+    public function getItem($id): array
+    {
+        $response = $this->client->request(
+            'GET',
+            'http://localhost:3000/api/property/' . $id
+        );
+
+        return $response->toArray();
+    }
 }
 
 

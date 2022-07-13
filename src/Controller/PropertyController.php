@@ -2,19 +2,26 @@
 
 namespace App\Controller;
 
+use App\Service\CallApiService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+/**
+ * @Route("/real-estate", name="property")
+ */
 class PropertyController extends AbstractController
 {
     /**
-     * @Route("/real-estate/{id}", name="app_property")
+     * @Route("/{id}", name="_item")
      */
-    public function index(): Response
+    public function item(
+        CallApiService $callApiService,
+        int $id
+    ): Response
     {
-        return $this->render('property/index.html.twig', [
-            'controller_name' => 'PropertyController',
+        return $this->render('property/item.html.twig', [
+            'data' => $callApiService->getItem($id),
         ]);
     }
 }

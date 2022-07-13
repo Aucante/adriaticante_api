@@ -16,7 +16,6 @@ class HomeController extends AbstractController
         CallApiService $callApiService
     ): Response
     {
-
         return $this->render('home/index.html.twig', [
             'datas' => $callApiService->getProperties(),
         ]);
